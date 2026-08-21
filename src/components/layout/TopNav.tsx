@@ -1,35 +1,58 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { navItems } from "@/lib/constants";
 import { site } from "@/data/site";
+import { SmoothLink } from "@/components/ui/SmoothLink";
+import { cn } from "@/lib/utils";
 
 export function TopNav() {
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState("home");
   const links = navItems.filter((item) => item.id !== "home");
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-16">
-        <Link
-          href="#home"
-          onClick={() => setOpen(false)}
+        <SmoothLink
+          id="home"
           className="font-display text-sm font-bold tracking-widest text-accent-soft"
         >
           CM
-        </Link>
+        </SmoothLink>
 
         <ul className="hidden items-center gap-7 lg:flex">
           {links.map((item) => (
             <li key={item.id}>
-              <Link
-                href={`#${item.id}`}
-                className="text-sm text-muted transition-colors hover:text-foreground"
+              <SmoothLink
+                id={item.id}
+                className={cn(
+                  "text-sm transition-colors hover:text-foreground",
+                  activeId === item.id ? "text-foreground" : "text-muted",
+                )}
               >
                 {item.label}
-              </Link>
+              </SmoothLink>
             </li>
           ))}
         </ul>
@@ -61,13 +84,16 @@ export function TopNav() {
           <ul className="flex flex-col gap-4">
             {links.map((item) => (
               <li key={item.id}>
-                <Link
-                  href={`#${item.id}`}
-                  onClick={() => setOpen(false)}
-                  className="text-sm text-muted transition-colors hover:text-foreground"
+                <SmoothLink
+                  id={item.id}
+                  onNavigate={() => setOpen(false)}
+                  className={cn(
+                    "text-sm transition-colors hover:text-foreground",
+                    activeId === item.id ? "text-foreground" : "text-muted",
+                  )}
                 >
                   {item.label}
-                </Link>
+                </SmoothLink>
               </li>
             ))}
             <li>

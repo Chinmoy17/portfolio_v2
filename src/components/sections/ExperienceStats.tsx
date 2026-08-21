@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { Counter } from "@/components/motion/Counter";
 import { stats } from "@/data/stats";
 import { experience } from "@/data/experience";
 
@@ -14,29 +16,31 @@ function formatDate(date: string | null) {
 export function ExperienceStats() {
   return (
     <Section id="experience">
-      <SectionHeading
-        index="06 / Experience"
-        title="Experience"
-        description="My professional journey so far."
-      />
+      <Reveal>
+        <SectionHeading
+          index="06 / Experience"
+          title="Experience"
+          description="My professional journey so far."
+        />
+      </Reveal>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <RevealGroup className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {stats.map((stat) => (
-          <div
+          <RevealItem
             key={stat.label}
             className="rounded-xl border border-border bg-surface p-5 text-center shadow-lg shadow-black/20 transition-colors hover:border-accent-dim"
           >
             <p className="font-display text-2xl font-bold text-accent-soft">
-              {stat.value}
+              <Counter value={stat.value} />
             </p>
             <p className="mt-1 text-xs text-muted-dim">{stat.label}</p>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
 
-      <div className="mt-12 flex flex-col gap-8">
+      <RevealGroup className="mt-12 flex flex-col gap-8">
         {experience.map((job) => (
-          <div
+          <RevealItem
             key={job.company}
             className="flex flex-col gap-4 border-b border-border/60 pb-8 last:border-0 sm:flex-row sm:justify-between"
           >
@@ -73,9 +77,9 @@ export function ExperienceStats() {
             <p className="shrink-0 text-sm text-muted-dim sm:text-right">
               {formatDate(job.start)} – {formatDate(job.end)}
             </p>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }

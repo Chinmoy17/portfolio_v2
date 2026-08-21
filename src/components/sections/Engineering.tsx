@@ -2,6 +2,7 @@ import { Server, Cloud, Database, Rocket, type LucideIcon } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pill } from "@/components/ui/Pill";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { skillsEngineering } from "@/data/skills-engineering";
 
 const icons: Record<string, LucideIcon> = {
@@ -14,17 +15,19 @@ const icons: Record<string, LucideIcon> = {
 export function Engineering() {
   return (
     <Section id="engineering" className="bg-background-elevated/40">
-      <SectionHeading
-        index="05 / Engineering"
-        title="Engineering & Deployment"
-        description="Designing scalable, reliable, and production-ready AI systems."
-      />
+      <Reveal>
+        <SectionHeading
+          index="05 / Engineering"
+          title="Engineering & Deployment"
+          description="Designing scalable, reliable, and production-ready AI systems."
+        />
+      </Reveal>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <RevealGroup className="grid gap-4 sm:grid-cols-2">
         {skillsEngineering.map((group) => {
           const Icon = icons[group.name] ?? Server;
           return (
-            <div
+            <RevealItem
               key={group.name}
               className="group rounded-xl border border-border bg-surface p-5 shadow-lg shadow-black/20 transition-colors hover:border-accent-dim"
             >
@@ -39,10 +42,10 @@ export function Engineering() {
                   <Pill key={item}>{item}</Pill>
                 ))}
               </div>
-            </div>
+            </RevealItem>
           );
         })}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }

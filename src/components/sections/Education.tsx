@@ -1,19 +1,42 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/motion/Reveal";
 import { education } from "@/data/education";
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
 export function Education() {
+  const reduce = useReducedMotion();
+
   return (
     <Section id="education" className="bg-background-elevated/40">
-      <SectionHeading
-        index="07 / Education"
-        title="Education"
-        description="Academic background and continuous learning."
-      />
+      <Reveal>
+        <SectionHeading
+          index="07 / Education"
+          title="Education"
+          description="Academic background and continuous learning."
+        />
+      </Reveal>
 
-      <ol className="relative flex flex-col gap-8 border-l border-border pl-8">
+      <motion.ol
+        initial={reduce ? undefined : "hidden"}
+        whileInView={reduce ? undefined : "show"}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+        className="relative flex flex-col gap-8 border-l border-border pl-8"
+      >
         {education.map((entry) => (
-          <li key={entry.institution} className="relative">
+          <motion.li
+            key={entry.institution}
+            variants={reduce ? undefined : itemVariants}
+            className="relative"
+          >
             <span className="absolute top-1.5 -left-[calc(2rem+4.5px)] h-2 w-2 rounded-full bg-accent" />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
               <p className="font-display text-base font-semibold text-foreground">
@@ -46,9 +69,9 @@ export function Education() {
                 ))}
               </div>
             )}
-          </li>
+          </motion.li>
         ))}
-      </ol>
+      </motion.ol>
     </Section>
   );
 }

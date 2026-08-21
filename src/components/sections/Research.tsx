@@ -1,6 +1,7 @@
 import { FileText, ExternalLink } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { publications } from "@/data/publications";
 import { site } from "@/data/site";
 
@@ -14,25 +15,27 @@ const statusStyles: Record<string, string> = {
 export function Research() {
   return (
     <Section id="research">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <SectionHeading
-          index="04 / Research"
-          title="Research That Matters"
-          description="Studying how learning systems stay reliable as data, users, and conditions shift — alongside my day-to-day engineering work."
-        />
-        <a
-          href={site.links.scholar}
-          target="_blank"
-          rel="noreferrer"
-          className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-accent-soft"
-        >
-          View all on Google Scholar <ExternalLink size={14} />
-        </a>
-      </div>
+      <Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            index="04 / Research"
+            title="Research That Matters"
+            description="Studying how learning systems stay reliable as data, users, and conditions shift — alongside my day-to-day engineering work."
+          />
+          <a
+            href={site.links.scholar}
+            target="_blank"
+            rel="noreferrer"
+            className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-accent-soft"
+          >
+            View all on Google Scholar <ExternalLink size={14} />
+          </a>
+        </div>
+      </Reveal>
 
-      <div className="flex flex-col gap-4">
+      <RevealGroup className="flex flex-col gap-4">
         {publications.map((pub) => (
-          <div
+          <RevealItem
             key={pub.title}
             className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5 shadow-lg shadow-black/20 transition-colors hover:border-accent-dim sm:flex-row sm:items-center sm:justify-between"
           >
@@ -68,9 +71,9 @@ export function Research() {
                 <span className="text-xs text-muted-dim">Link pending</span>
               )}
             </div>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }
