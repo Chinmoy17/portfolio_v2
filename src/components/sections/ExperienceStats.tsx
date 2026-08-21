@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { stats } from "@/data/stats";
@@ -23,7 +24,7 @@ export function ExperienceStats() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-border bg-surface p-5 text-center"
+            className="rounded-xl border border-border bg-surface p-5 text-center shadow-lg shadow-black/20 transition-colors hover:border-accent-dim"
           >
             <p className="font-display text-2xl font-bold text-accent-soft">
               {stat.value}
@@ -33,24 +34,41 @@ export function ExperienceStats() {
         ))}
       </div>
 
-      <div className="mt-12 flex flex-col gap-6">
+      <div className="mt-12 flex flex-col gap-8">
         {experience.map((job) => (
           <div
             key={job.company}
-            className="flex flex-col gap-2 border-b border-border/60 pb-6 last:border-0 sm:flex-row sm:justify-between"
+            className="flex flex-col gap-4 border-b border-border/60 pb-8 last:border-0 sm:flex-row sm:justify-between"
           >
-            <div>
-              <p className="font-display text-base font-semibold text-foreground">
-                {job.role} · {job.company}
-              </p>
-              <p className="text-sm text-muted-dim">
-                {job.type} · {job.location}
-              </p>
-              <ul className="mt-3 flex list-disc flex-col gap-1 pl-4 text-sm text-muted">
-                {job.highlights.slice(0, 3).map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </ul>
+            <div className="flex gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white/95">
+                {job.logo ? (
+                  <Image
+                    src={job.logo}
+                    alt={`${job.company} logo`}
+                    width={44}
+                    height={44}
+                    className="h-full w-full object-contain p-1"
+                  />
+                ) : (
+                  <span className="font-display text-sm font-bold text-background">
+                    {job.company.charAt(0)}
+                  </span>
+                )}
+              </div>
+              <div>
+                <p className="font-display text-base font-semibold text-foreground">
+                  {job.role} · {job.company}
+                </p>
+                <p className="text-sm text-muted-dim">
+                  {job.type} · {job.location}
+                </p>
+                <ul className="mt-3 flex list-disc flex-col gap-1 pl-4 text-sm text-muted">
+                  {job.highlights.slice(0, 3).map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <p className="shrink-0 text-sm text-muted-dim sm:text-right">
               {formatDate(job.start)} – {formatDate(job.end)}

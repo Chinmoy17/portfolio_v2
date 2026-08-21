@@ -23,6 +23,7 @@ export interface Experience {
   end: string | null;
   summary?: string;
   highlights: string[];
+  logo?: string;
 }
 
 export interface EducationEntry {

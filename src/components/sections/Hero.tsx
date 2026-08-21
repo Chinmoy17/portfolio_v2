@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="scroll-mt-16 relative flex min-h-[90vh] items-center overflow-hidden border-b border-border/60 px-6 py-20 sm:px-10 lg:px-16"
+      className="scroll-mt-16 relative flex min-h-[70vh] items-center overflow-hidden border-b border-border/60 px-6 py-16 sm:min-h-[90vh] sm:px-10 sm:py-20 lg:px-16"
     >
       <div
         aria-hidden

@@ -26,7 +26,7 @@ export function Engineering() {
           return (
             <div
               key={group.name}
-              className="group rounded-xl border border-border bg-surface p-5"
+              className="group rounded-xl border border-border bg-surface p-5 shadow-lg shadow-black/20 transition-colors hover:border-accent-dim"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background-elevated text-muted transition-colors group-hover:text-accent-soft">
                 <Icon size={16} />

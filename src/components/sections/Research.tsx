@@ -34,7 +34,7 @@ export function Research() {
         {publications.map((pub) => (
           <div
             key={pub.title}
-            className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5 shadow-lg shadow-black/20 transition-colors hover:border-accent-dim sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="flex gap-4">
               <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-background-elevated text-accent-soft">

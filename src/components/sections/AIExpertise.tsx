@@ -27,7 +27,7 @@ export function AIExpertise() {
           {skillsAI.map((group) => (
             <div
               key={group.name}
-              className="rounded-xl border border-border bg-surface p-4"
+              className="rounded-xl border border-border bg-surface p-4 shadow-lg shadow-black/20 transition-colors hover:border-accent-dim"
             >
               <p className="font-display text-sm font-semibold text-foreground">
                 {group.name}

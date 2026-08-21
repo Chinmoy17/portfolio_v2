@@ -8,6 +8,7 @@ export const experience: Experience[] = [
     location: "Dhaka, Bangladesh",
     start: "2025-10-15",
     end: null,
+    logo: "/images/logos/dexian.jpeg",
     summary:
       "Build and ship agentic AI and evaluation-driven LLM systems for enterprise workflows, with an emphasis on reliability, measurable quality, and production readiness.",
     highlights: [
@@ -25,6 +26,7 @@ export const experience: Experience[] = [
     location: "Dhaka, Bangladesh",
     start: "2025-08-01",
     end: "2025-10-09",
+    logo: "/images/logos/walton.png",
     highlights: [
       "Contributed to an enterprise RAG chatbot for customer support, order processing, HRMS, product search, and warranty claims.",
       "Supported retrieval, orchestration, and evaluation components to improve internal productivity.",
@@ -37,6 +39,7 @@ export const experience: Experience[] = [
     location: "Remote",
     start: "2024-03-01",
     end: "2025-07-31",
+    logo: "/images/logos/outlier.jpeg",
     highlights: [
       "Designed high-quality prompts and responses to improve LLM performance in code generation, refactoring, and summarization.",
       "Assisted fine-tuning workflows via curated datasets and output evaluation.",
