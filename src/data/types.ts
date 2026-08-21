@@ -59,6 +59,7 @@ export interface Project {
   stack: string[];
   summary: string;
   metrics?: string[];
+  image?: string;
   links: {
     repo?: string | null;
     demo?: string | null;

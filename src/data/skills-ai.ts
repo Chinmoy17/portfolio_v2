@@ -1,20 +1,29 @@
 import { SkillGroup } from "./types";
 
+// Exactly 6 groups — one per face of the skill cube in AIExpertise.
 export const skillsAI: SkillGroup[] = [
   {
     name: "LLMs",
-    items: ["LangChain", "GPT / Claude / Gemini", "RAG Systems", "DSPy"],
+    items: ["GPT / Claude / Gemini", "LangChain", "Prompt Engineering"],
   },
   {
     name: "Transformers",
     items: ["Hugging Face", "PyTorch", "TensorFlow", "LoRA Fine-tuning"],
   },
   {
+    name: "RAG",
+    items: ["FAISS", "ChromaDB", "Milvus", "PageIndex QA"],
+  },
+  {
+    name: "Agents",
+    items: ["Claude Agent SDK", "DSPy (GEPA)", "MCP", "Orchestration"],
+  },
+  {
     name: "NLP",
-    items: ["NLP Pipelines", "Prompt Engineering", "Scikit-learn"],
+    items: ["Summarization", "Classification", "Scikit-learn", "NLTK"],
   },
   {
     name: "Deep Learning",
-    items: ["Deep Learning", "Computer Vision", "OpenCV", "Gradio"],
+    items: ["CNNs", "Computer Vision", "OpenCV", "Transfer Learning"],
   },
 ];

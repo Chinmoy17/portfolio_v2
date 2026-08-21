@@ -14,8 +14,8 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(124,92,255,0.18),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(233,79,161,0.10),transparent_40%)]"
       />
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-2">
-        <div>
+      <div className="relative mx-auto w-full max-w-6xl">
+        <div className="max-w-2xl">
           <Reveal>
             <p className="font-display text-sm tracking-widest text-accent-soft">
               Hi, I&apos;m
@@ -57,10 +57,6 @@ export function Hero() {
               </MagneticButton>
             </div>
           </Reveal>
-        </div>
-
-        <div className="relative hidden aspect-square items-center justify-center md:flex">
-          <div className="h-72 w-72 rounded-full bg-[conic-gradient(from_180deg,rgba(124,92,255,0.35),rgba(233,79,161,0.15),transparent_70%)] blur-2xl" />
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { Project } from "./types";
 export const projects: Project[] = [
   {
     id: "note2action",
+    image: "/images/projects/note2action.webp",
     slug: "note2action",
     title: "Note2Action",
     category: "enterprise",
@@ -35,6 +36,7 @@ export const projects: Project[] = [
   },
   {
     id: "agentflow",
+    image: "/images/projects/agentflow.webp",
     slug: "agentflow",
     title: "AgentFlow",
     category: "enterprise",
@@ -55,6 +57,7 @@ export const projects: Project[] = [
   },
   {
     id: "pdf-chatbot",
+    image: "/images/projects/pdf-chatbot.webp",
     slug: "multilingual-pdf-chatbot-rag",
     title: "Multilingual PDF Chatbot",
     category: "public",
@@ -88,6 +91,7 @@ export const projects: Project[] = [
   },
   {
     id: "blog-generator",
+    image: "/images/projects/blog-generator.webp",
     slug: "blog-generator-llms",
     title: "Blog Generator via LLMs",
     category: "public",
@@ -99,6 +103,7 @@ export const projects: Project[] = [
   },
   {
     id: "ai-painter",
+    image: "/images/projects/ai-painter.webp",
     slug: "ai-painter",
     title: "AI Painter",
     category: "public",
@@ -110,6 +115,7 @@ export const projects: Project[] = [
   },
   {
     id: "custom-cpu",
+    image: "/images/projects/custom-cpu.webp",
     slug: "4-bit-custom-cpu",
     title: "4-Bit Custom CPU Design",
     category: "public",

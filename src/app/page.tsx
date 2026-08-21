@@ -1,6 +1,6 @@
 import { TopNav } from "@/components/layout/TopNav";
 import { Hero } from "@/components/sections/Hero";
-import { ProjectsCarousel } from "@/components/sections/ProjectsCarousel";
+import { ProjectsShowcase } from "@/components/sections/ProjectsShowcase";
 import { AIExpertise } from "@/components/sections/AIExpertise";
 import { Research } from "@/components/sections/Research";
 import { Engineering } from "@/components/sections/Engineering";
@@ -14,7 +14,7 @@ export default function Home() {
       <TopNav />
       <main className="pt-16">
         <Hero />
-        <ProjectsCarousel />
+        <ProjectsShowcase />
         <AIExpertise />
         <Research />
         <Engineering />
